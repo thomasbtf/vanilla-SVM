@@ -20,8 +20,8 @@ $$u= w \cdot x - b,$$
 
 wobei\
 - <img src="https://latex.codecogs.com/gif.latex?w"/> den Normalenvektor zu der Hyperebene,
-- $x$ den Eingabevektor und
-- $b$ einen skalaren Schwellwert darstellt.
+- <img src="https://latex.codecogs.com/gif.latex?x"/> den Eingabevektor und
+- <img src="https://latex.codecogs.com/gif.latex?b"/> einen skalaren Schwellwert darstellt.
 
 Eine SVM soll eine Hyperebene finden, die zwei Klassen trennt, d.h. ${w} \cdot {x} - b = 0$.
 
