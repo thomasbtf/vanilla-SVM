@@ -1,3 +1,13 @@
+# Implementation of a Support Vector Machine without the aid of external libraries
+
+This repository contains a Juypter notebook in which Support Vector Machines (SVMs) are implemented based on various kernels and methods. Moreover, the content of the notebook is shown as markdown text below. However, the notebook provides a nice latex formating and is, therefore, recommended to read.
+
+On the one hand the Sequential Minimal Optimization (SMO) is utilized. This heuristic was presented in 1988 by John C. Platt in the paper "A Fast Algorithm for Training Support Vector Machines". Furthermore, Stochastic Gradient Descent is also implemented.
+
+In addition, the behaviour of the hyperplanes of the two approaches is compared when training on various data sets.
+
+The notebook is composed in German.
+
 # Low-Level Programmierung von maschinellem Lernen: Implementation einer Support Vector Machine ohne Hilfe von externen Bibliotheken und anschließendes Training mit Hilfe eines künstlichen Datensatzes
 
 von Thomas Battenfeld
@@ -6,17 +16,14 @@ Quelle: <a href ="https://pdfs.semanticscholar.org/53fc/c056f79e04daf11eb798a723
 
 Eine Support Vector Machine (SVM) teilt einen n-dimensionalen Raum mit Hilfe einer n-1-dimensionalen Hyperebene. Diese Entscheidungsfunktion kann folgendermaßen beschrieben werden:
  
-
- 
 $$u= w \cdot x - b,$$
 
- 
 wobei\
-$\ \ \ \ \ \ -$ ${w}$ den Normalenvektor zu der Hyperebene,\
-$\ \ \ \ \ \ -$ ${x}$ den Eingabevektor und\
-$\ \ \ \ \ \ -$ $b$ einen skalaren Schwellwert darstellt.
+- $w$ den Normalenvektor zu der Hyperebene,\
+- $x$ den Eingabevektor und\
+- $b$ einen skalaren Schwellwert darstellt.
 
-Eine SVM soll eine Hyperebene finden, die zwei Klassen trennt, d.h. ${w} \cdot {x} - b = 0$. 
+Eine SVM soll eine Hyperebene finden, die zwei Klassen trennt, d.h. ${w} \cdot {x} - b = 0$.
 
 Für Instanzen der Klasse ''$-1$'' soll $w \cdot x - b \leq -1$ gelten, während für Instanzen der Klasse ''$1$'' $w \cdot x - b \geq 1$ gelten soll.
 Dazu soll der Abstand $a$ der Hyperebene zu den beiden Klassen möglichst groß sein. Dieser Abstand kann als
@@ -54,9 +61,9 @@ Dieses Optimierungsproblem kann in einer dualen Form und mit Hilfe von Lagrange-
 \end{equation}
 
 wobei \
-$\ \ \ \ \ \ -$ $N$ die Anzahl der Trainingsdatensätze ist, \
-$\ \ \ \ \ \ -$ $K$ eine Kernelfunktion ist und \
-$\ \ \ \ \ \ -$ $\alpha$ Lagrange-Multiplikatoren darstellen.
+- $N$ die Anzahl der Trainingsdatensätze ist, \
+- $K$ eine Kernelfunktion ist und \
+- $\alpha$ Lagrange-Multiplikatoren darstellen.
 
 Mit Hilfe der Lagrange-Multiplikatoren ist das Auffinden der lokalen Maxima und Minima einer Funktion (welche Nebenbedingungen unterliegt) möglich.
 Des Weiteren unterliegt das Optimierungsproblem den folgenden Karush-Kuhn-Tucker Bedingungen:
@@ -78,12 +85,11 @@ $$u = \sum^N_{j=1}y_j \alpha_j K(x_j,x)-b.$$
 
 Eine Möglichkeit dieses duale Problem zu lösen stellt die Sequential Minimal Optimization (SMO) dar. Diese Heuristik wurde im Jahr 1988 vom John C. Platt in dem Paper <a href ="https://pdfs.semanticscholar.org/53fc/c056f79e04daf11eb798a7238e93699665aa.pdf?_ga=2.244554757.1233975175.1575631299-132689507.1565621253"> "A Fast Algorithm for Training Support Vector Machines"</a> vorgestellt und geht wie folgt vor:
 
-$\ \ \ \ \ \ -$ Finde einen Lagrange-Multiplikator $\alpha _{1}$, der gegen die Karush-Kuhn-Tucker Bedingungen verstößt. \
-$\ \ \ \ \ \ -$ Wähle einen zweiten Lagrange-Multiplikator $\alpha _{2}$ und optimiere für das Multiplikatoren-Paar $(\alpha _{1},\alpha _{2})$. \
-$\ \ \ \ \ \ -$ Wiederhole die Schritte 1 und 2 bis das Optimierungsproblem konvergiert.
+- Finde einen Lagrange-Multiplikator $\alpha _{1}$, der gegen die Karush-Kuhn-Tucker Bedingungen verstößt. \
+- Wähle einen zweiten Lagrange-Multiplikator $\alpha_{2}$ und optimiere für das Multiplikatoren-Paar $(\alpha_{1},\alpha _{2})$. \
+- Wiederhole die Schritte 1 und 2 bis das Optimierungsproblem konvergiert.
 
 Der SMO Algorithmus ist im Folgenden nach dem Pseudo-Code aus dem Paper von John C. Platt in Python implementiert:
-
 
 ```python
 import matplotlib.pyplot as plt
@@ -94,7 +100,6 @@ import math
 sns.set()
 %matplotlib inline
 ```
-
 
 ```python
 class SVMwithSMO:
@@ -307,7 +312,6 @@ class SVMwithSMO:
 
 Wie eingangs erwähnt, wird bei SMO Kernels genutzt. Im Folgenden werden ein linearer und ein polynomialer Kernel implementiert:
 
-
 ```python
 # Quelle: https://www.guru99.com/kernel-methods-machine-learning.html
 # Quelle: https://www.di.ens.fr/~mallat/papiers/svmtutorial.pdf
@@ -436,13 +440,11 @@ Abschließend werden die selben Schritte für eine SMO und eine scikit-learn SVM
 
 ## Scikit-learn SVM
 
-
 ```python
 from sklearn.datasets.samples_generator import make_blobs, make_moons
 from sklearn.preprocessing import StandardScaler
 from sklearn.svm import SVC
 ```
-
 
 ```python
 # In Anlehnung an: https://jakevdp.github.io/PythonDataScienceHandbook/05.07-support-vector-machines.html
@@ -468,10 +470,8 @@ def plot_svc_decision_function(model, X, y_label, ax=None, plot_support=False):
     ax.set_title('SKL SVM')
     plt.show()
 ```
-
 ## Generierung von Daten
 Um die jeweiligen SVMs anwenden zu können, werden Daten benötigt. Hier wird ein künstliches Datenset mit Hilfe von scikit-learn erzeugt:
-
 
 ```python
 X, y = make_blobs(n_samples = 100,
@@ -487,12 +487,9 @@ plt.scatter(X[:, 0], X[:, 1], c=y, s=50, cmap='autumn')
 plt.show()
 ```
 
-
     
 ![png](vanilla-support-vector-machine_files/vanilla-support-vector-machine_12_0.png)
     
-
-
 ## SVMs mit linearen Kernel
 
 
@@ -510,10 +507,8 @@ skl_model_lin.fit(X, y)
 
 print("SMO, SGD und SKL SVM trainiert.")
 ```
-
     SMO, SGD und SKL SVM trainiert.
     
-
 
 ```python
 smo_model_lin.plot()
