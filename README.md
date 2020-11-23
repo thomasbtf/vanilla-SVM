@@ -19,7 +19,7 @@ Eine Support Vector Machine (SVM) teilt einen n-dimensionalen Raum mit Hilfe ein
 $$u= w \cdot x - b,$$
 
 wobei\
-- <img src="https://latex.codecogs.com/gif.latex? w$> den Normalenvektor zu der Hyperebene,
+- <img src="https://latex.codecogs.com/gif.latex?w"/> den Normalenvektor zu der Hyperebene,
 - $x$ den Eingabevektor und
 - $b$ einen skalaren Schwellwert darstellt.
 
