@@ -15,12 +15,12 @@ von Thomas Battenfeld
 Quelle: <a href ="https://pdfs.semanticscholar.org/53fc/c056f79e04daf11eb798a7238e93699665aa.pdf?_ga=2.244554757.1233975175.1575631299-132689507.1565621253"> John C. Platt - A Fast Algorithm for Training Support Vector Machines</a>
 
 Eine Support Vector Machine (SVM) teilt einen n-dimensionalen Raum mit Hilfe einer n-1-dimensionalen Hyperebene. Diese Entscheidungsfunktion kann folgendermaßen beschrieben werden:
- 
+
 $$u= w \cdot x - b,$$
 
 wobei\
-- $w$ den Normalenvektor zu der Hyperebene,\
-- $x$ den Eingabevektor und\
+- <img src="https://latex.codecogs.com/gif.latex? w$> den Normalenvektor zu der Hyperebene,
+- $x$ den Eingabevektor und
 - $b$ einen skalaren Schwellwert darstellt.
 
 Eine SVM soll eine Hyperebene finden, die zwei Klassen trennt, d.h. ${w} \cdot {x} - b = 0$.
