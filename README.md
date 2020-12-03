@@ -40,7 +40,7 @@ Da die Daten häufig nicht linear trennbar sind, wurden von Cortes & Vapnik 1995
 
 
 <img src="https://latex.codecogs.com/gif.latex?\min\frac{1}{2}||w||^2+C\sum^N_{i=1}\xi_i"/>
-<img src="https://latex.codecogs.com/gif.latex?\mbox{s.t.}&y_i(w\cdot{x_i}-b)\geq{1}-\xi_i\forall{i},"/>
+<img src="https://latex.codecogs.com/gif.latex?\mbox{s.t.}y_i(w\cdot{x_i}-b)\geq{1}-\xi_i\forall{i},"/>
 
 
 wobei <img src="https://latex.codecogs.com/gif.latex?\xi_i"/> Schlupfvariablen sind, die Datenpunkten innerhalb des Abstands <img src="https://latex.codecogs.com/gif.latex?a"/> zulassen. <img src="https://latex.codecogs.com/gif.latex?C"/> stellt den korrespondierenden Strafterm dar.
