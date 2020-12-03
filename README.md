@@ -25,10 +25,10 @@ wobei
 
 Eine SVM soll eine Hyperebene finden, die zwei Klassen trennt, d.h. <img src="https://latex.codecogs.com/gif.latex?{w}\cdot{x}-b=0"/>.
 
-Für Instanzen der Klasse ''<img src="https://latex.codecogs.com/gif.latex?-1$"/>'' soll <img src="https://latex.codecogs.com/gif.latex?w \cdot x - b \leq -1"/> gelten, während für Instanzen der Klasse ''<img src="https://latex.codecogs.com/gif.latex?1"/>'' <img src="https://latex.codecogs.com/gif.latex?w \cdot x - b \geq 1"/> gelten soll.
+Für Instanzen der Klasse ''<img src="https://latex.codecogs.com/gif.latex?-1"/>'' soll <img src="https://latex.codecogs.com/gif.latex?w \cdot x - b \leq -1"/> gelten, während für Instanzen der Klasse ''<img src="https://latex.codecogs.com/gif.latex?1"/>'' <img src="https://latex.codecogs.com/gif.latex?w \cdot x - b \geq 1"/> gelten soll.
 Dazu soll der Abstand <img src="https://latex.codecogs.com/gif.latex?a"/> der Hyperebene zu den beiden Klassen möglichst groß sein. Dieser Abstand kann als
 
-<img src="https://latex.codecogs.com/gif.latex?a = \frac{1}{||{w}||_2}"/>
+<img src="https://latex.codecogs.com/gif.latex?a=\frac{1}{||{w}||_2}"/>
 
 formuliert werden. Die Maximierung dieses Abstands kann durch das folgende Optimierungsproblem erfolgen:
 
@@ -60,9 +60,9 @@ Dieses Optimierungsproblem kann in einer dualen Form und mit Hilfe von Lagrange-
     \end{array}
 \end{equation}
 
-wobei \
-- <img src="https://latex.codecogs.com/gif.latex?N"/> die Anzahl der Trainingsdatensätze ist, \
-- <img src="https://latex.codecogs.com/gif.latex?K"/> eine Kernelfunktion ist und \
+wobei
+- <img src="https://latex.codecogs.com/gif.latex?N"/> die Anzahl der Trainingsdatensätze ist,
+- <img src="https://latex.codecogs.com/gif.latex?K"/> eine Kernelfunktion ist und
 - <img src="https://latex.codecogs.com/gif.latex?\alpha"/> Lagrange-Multiplikatoren darstellen.
 
 Mit Hilfe der Lagrange-Multiplikatoren ist das Auffinden der lokalen Maxima und Minima einer Funktion (welche Nebenbedingungen unterliegt) möglich.
@@ -79,14 +79,14 @@ Des Weiteren unterliegt das Optimierungsproblem den folgenden Karush-Kuhn-Tucker
 Karush-Kuhn-Tucker Bedingungen stellen die notwendigen Voraussetzungen dafür dar, dass eine Lösung in der nicht linearen Programmierung optimal sein kann.
 Die korrespondierende Entscheidungsfunktion zu dem oben genannten dualen Problem wird folgendermaßen definiert:
 
-<img src="https://latex.codecogs.com/gif.latex?u = \sum^N_{j=1}y_j \alpha_j K(x_j,x)-b."/>
+<img src="https://latex.codecogs.com/gif.latex?u=\sum^N{j=1}y_j\alpha_jK(x_j,x)-b."/>
 
 # Support Vector Machines mit Sequential Minimal Optimization nach John C. Platt "A Fast Algorithm for Training Support Vector Machines" (1998)
 
 Eine Möglichkeit dieses duale Problem zu lösen stellt die Sequential Minimal Optimization (SMO) dar. Diese Heuristik wurde im Jahr 1988 vom John C. Platt in dem Paper <a href ="https://pdfs.semanticscholar.org/53fc/c056f79e04daf11eb798a7238e93699665aa.pdf?_ga=2.244554757.1233975175.1575631299-132689507.1565621253"> "A Fast Algorithm for Training Support Vector Machines"</a> vorgestellt und geht wie folgt vor:
 
 - Finde einen Lagrange-Multiplikator <img src="https://latex.codecogs.com/gif.latex?\alpha _{1}"/>, der gegen die Karush-Kuhn-Tucker Bedingungen verstößt.
-- Wähle einen zweiten Lagrange-Multiplikator <img src="https://latex.codecogs.com/gif.latex?\alpha_{2}"/> und optimiere für das Multiplikatoren-Paar <img src="https://latex.codecogs.com/gif.latex?(\alpha_{1},\alpha _{2}) "/>.
+- Wähle einen zweiten Lagrange-Multiplikator <img src="https://latex.codecogs.com/gif.latex?\alpha_{2}"/> und optimiere für das Multiplikatoren-Paar <img src="https://latex.codecogs.com/gif.latex?(\alpha_{1},\alpha _{2})"/>.
 - Wiederhole die Schritte 1 und 2 bis das Optimierungsproblem konvergiert.
 
 Der SMO Algorithmus ist im Folgenden nach dem Pseudo-Code aus dem Paper von John C. Platt in Python implementiert:
@@ -325,9 +325,9 @@ def polynomial_kernel(x, y, p = 3):
 
 # Support Vector Machines mit Stochastic Gradient Descent
 
-Quelle: <a href = https://svivek.com/teaching/machine-learning/lectures/slides/svm/svm-sgd.pdf>Vivek Srikumar - Support	Vector	Machines Training with Stochastic Gradient Descent.</a>
+Quelle: <a href = https://svivek.com/teaching/machine-learning/lectures/slides/svm/svm-sgd.pdf>Vivek Srikumar - Support Vector Machines Training with Stochastic Gradient Descent.</a>
 
-Als Alternativ zur SMO kann das primale Problem mit Hilfe von Stochastic Gradient Descent (SGD) bearbeitet werden. Dabei werden die Schlupfvariablen $\xi_i$ der Zielfunktion durch eine Verlustfunktion ersetzt, beispielsweise der Hinge-Funktion:
+Als Alternativ zur SMO kann das primale Problem mit Hilfe von Stochastic Gradient Descent (SGD) bearbeitet werden. Dabei werden die Schlupfvariablen <img src="https://latex.codecogs.com/gif.latex?\xi_i"/> der Zielfunktion durch eine Verlustfunktion ersetzt, beispielsweise der Hinge-Funktion:
 
 \begin{equation}
     \begin{array}{lll}
@@ -337,12 +337,12 @@ Als Alternativ zur SMO kann das primale Problem mit Hilfe von Stochastic Gradien
 
 Da diese Funktion konvex ist und keine Nebenbedingungen gelten, kann ein Gradientenverfahren angewandt werden. Der  stochastische Ansatz des SGD geht wie folgt vor:
 
-1. Initialisiere  $w = 0$.
-2. Für die Epoche $e = 1 ... E$ tue: \
-    2.1 Wähle einen zufälligen Datensatz $(x, y)$ aus dem Trainingsset, wobei $x$ die Eigenschaften darstellt und $y$ die Zielvariable (bzw. das Label) ist. \
-    2.2. Berechne den Gradienten der Zielfunktion für diesen Datensatz. \
-    2.3. Update von $w$: $w^E \leftarrow w^{e-1} - \eta \nabla J(w^{e-1})$, wobei die Learning Rate $\eta$ die Größe des Updates bestimmt.
-3. Gib das finale $w$ zurück.
+1. Initialisiere  <img src="https://latex.codecogs.com/gif.latex?w=0"/>.
+2. Für die Epoche <img src="https://latex.codecogs.com/gif.latex?e=1...E"/> tue:
+    2.1 Wähle einen zufälligen Datensatz <img src="https://latex.codecogs.com/gif.latex?(x, y)"/> aus dem Trainingsset, wobei <img src="https://latex.codecogs.com/gif.latex?x"/> die Eigenschaften darstellt und <img src="https://latex.codecogs.com/gif.latex?y"/> die Zielvariable (bzw. das Label) ist.
+    2.2. Berechne den Gradienten der Zielfunktion für diesen Datensatz.
+    2.3. Update von <img src="https://latex.codecogs.com/gif.latex?w"/>: <img src="https://latex.codecogs.com/gif.latex?w^E\leftarrow w^{e-1} - \eta \nabla J(w^{e-1})"/>, wobei die Learning Rate <img src="https://latex.codecogs.com/gif.latex?\eta"/> die Größe des Updates bestimmt.
+3. Gib das finale <img src="https://latex.codecogs.com/gif.latex?w"/> zurück.
 
 Da die Hinge Verlustfunktion keine differenzierbare Funktion ist, werden Sub-Gradienten eingesetzt:
 
@@ -355,7 +355,7 @@ $$\nabla J =
 \end{cases}
 $$
 
-Es ist klar, dass $w$ sowohl stark von der gewählten Anzahl der Epochen als auch von der Learning Rate abhängt. Im Folgendem ist ein solch eher rudimentärer SGD in Anlehnung an <a href = https://svivek.com/teaching/machine-learning/lectures/slides/svm/svm-sgd.pdf>Vivek Srikumar</a>  in Python implementiert:
+Es ist klar, dass <img src="https://latex.codecogs.com/gif.latex?w"/> sowohl stark von der gewählten Anzahl der Epochen als auch von der Learning Rate abhängt. Im Folgendem ist ein solch eher rudimentärer SGD in Anlehnung an <a href = https://svivek.com/teaching/machine-learning/lectures/slides/svm/svm-sgd.pdf>Vivek Srikumar</a>  in Python implementiert:
 
 
 ```python
@@ -434,7 +434,7 @@ class SVMwithSGD:
 
 Es folgt der Vergleich von SMO und SGD SVMs. Für diesen Vergleich wird zusätzlich eine SVM von scikit-learn genutzt. Mit Hilfe der scikit-learn Bibliothek werden darüber hinaus künstliche Datensets erzeugt.
 
-Zunächst werden die drei SVMs mit einem linearen Kernel trainiert, die Hyperebene geplottet und die Vorhersage für unbekannte Datenpunkte ausgegeben. Anschließend werden Datenpunkte innerhalb von des Abstandes hinzufügt, die SVMs erneut trainiert und die veränderte Hyperebene geplottet. Das Gleiche erfolgt für ein geringeres $C$.
+Zunächst werden die drei SVMs mit einem linearen Kernel trainiert, die Hyperebene geplottet und die Vorhersage für unbekannte Datenpunkte ausgegeben. Anschließend werden Datenpunkte innerhalb von des Abstandes hinzufügt, die SVMs erneut trainiert und die veränderte Hyperebene geplottet. Das Gleiche erfolgt für ein geringeres <img src="https://latex.codecogs.com/gif.latex?C"/>.
 
 Abschließend werden die selben Schritte für eine SMO und eine scikit-learn SVM mit polynomialen Kernel durchgeführt.
 
@@ -534,7 +534,7 @@ plot_svc_decision_function(skl_model_lin, X, y)
     
 
 
-Alle drei SVMs teilen die Daten durch die geforderte Hyperebene. Allerdings ist zu erkennen, dass die Hyperebenen sich unterscheiden (bspw. variiert die jeweilige Steigung ). Als Gütekriterium kann der Abstand $a$ der Hyperebene der jeweiligen SVMs genutzt werden.
+Alle drei SVMs teilen die Daten durch die geforderte Hyperebene. Allerdings ist zu erkennen, dass die Hyperebenen sich unterscheiden (bspw. variiert die jeweilige Steigung). Als Gütekriterium kann der Abstand <img src="https://latex.codecogs.com/gif.latex?a"/> der Hyperebene der jeweiligen SVMs genutzt werden.
 
 ### Parameter der SVMs
 
@@ -572,7 +572,7 @@ print('SKL a: ' + str(1 / (math.sqrt(sum(i*i for i in skl_model_lin.coef_[0]))))
     SKL a: 0.7296973386443764
     
 
-Wie schon bei der grafischen Betrachtung der Hyperebene aufgefallen ist, gleichen sich diese relativ stark. Vor allem bei der SMO und SKL SVM ist das der Fall. Der Abstand $a$ der SMO und der SKL SVM sind fast gleich groß, aber deutlich größer als der Abstand der SGD SVM. Auch die Steigung $m$ der SMO und SKL SVM gleichen sich stark.
+Wie schon bei der grafischen Betrachtung der Hyperebene aufgefallen ist, gleichen sich diese relativ stark. Vor allem bei der SMO und SKL SVM ist das der Fall. Der Abstand <img src="https://latex.codecogs.com/gif.latex?a"/> der SMO und der SKL SVM sind fast gleich groß, aber deutlich größer als der Abstand der SGD SVM. Auch die Steigung <img src="https://latex.codecogs.com/gif.latex?m"/> der SMO und SKL SVM gleichen sich stark.
 
 ### Vorhersage von unbekannten Datenpunkten
 
@@ -616,7 +616,7 @@ print("SKL Vorhersagen: " + str(skl_model_lin.predict(toPredict)))
 
 Trotz der unterschiedlichen Parameter der SVMs klassifizieren diese korrekt.
 
-### Hinzufügen von neuen Datenpunkten innerhalb von $w$
+### Hinzufügen von neuen Datenpunkten innerhalb von <img src="https://latex.codecogs.com/gif.latex?w"/>
 
 
 ```python
@@ -677,7 +677,7 @@ plot_svc_decision_function(skl_model_lin_o, X_outlier, y_outlier)
     
 
 
-Aufgrund des hohen Strafterms $C$ verändert sich die Hyperebene der SMO und SKL SVM korrekt. Die SGD SVM allerdings benötigt höchstwahrscheinlich mehrere Iterationen oder ein besser gesteuerten Learning Rate, um eine ähnlich veränderte Hyperebene vorzeigen zu können.
+Aufgrund des hohen Strafterms <img src="https://latex.codecogs.com/gif.latex?C"/> verändert sich die Hyperebene der SMO und SKL SVM korrekt. Die SGD SVM allerdings benötigt höchstwahrscheinlich mehrere Iterationen oder ein besser gesteuerten Learning Rate, um eine ähnlich veränderte Hyperebene vorzeigen zu können.
 
 ### Datenset mit neuen Datenpunken und kleinerem C
 
@@ -725,7 +725,7 @@ plot_svc_decision_function(skl_model_lin_o, X_outlier, y_outlier)
     
 
 
-Auch hier zeigt sich, dass die SMO und SKL SVM relativ ähnlich handeln. Eine Verringerung des Starfterms bewirkt, das die hinzugefügten Datenpunkte innerhalb von $a$ liegen. Bei der SGD SVM bewirkt die Verringerung des Starfterms ein deutlich größeres $a$.
+Auch hier zeigt sich, dass die SMO und SKL SVM relativ ähnlich handeln. Eine Verringerung des Starfterms bewirkt, das die hinzugefügten Datenpunkte innerhalb von <img src="https://latex.codecogs.com/gif.latex?a"/> liegen. Bei der SGD SVM bewirkt die Verringerung des Starfterms ein deutlich größeres <img src="https://latex.codecogs.com/gif.latex?a"/>.
 
 ## SVMs mit polynomialen Kernel
 
@@ -894,7 +894,7 @@ plot_svc_decision_function(skl_model_pol_o, X_outlier, y_outlier)
 
 Aufgrund des geringen Strafterms können mehrere Datenpunkte innerhalb des Abstands der Hyperebene liegen.
 
-## SMO SVM mit polynomial Kernel $p = 9$
+## SMO SVM mit polynomial Kernel <img src="https://latex.codecogs.com/gif.latex?p=9"/>
 
 
 ```python
