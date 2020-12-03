@@ -16,7 +16,7 @@ Quelle: <a href ="https://pdfs.semanticscholar.org/53fc/c056f79e04daf11eb798a723
 
 Eine Support Vector Machine (SVM) teilt einen n-dimensionalen Raum mit Hilfe einer n-1-dimensionalen Hyperebene. Diese Entscheidungsfunktion kann folgendermaßen beschrieben werden:
 
-<img src="https://latex.codecogs.com/gif.latex?u=w\cdotx-b,"/>
+<img src="https://latex.codecogs.com/gif.latex?u=w*x-b,"/>
 
 wobei
 - <img src="https://latex.codecogs.com/gif.latex?w"/> den Normalenvektor zu der Hyperebene,
