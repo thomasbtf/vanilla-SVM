@@ -44,13 +44,10 @@ Da die Daten häufig nicht linear trennbar sind, wurden von Cortes & Vapnik 1995
 wobei <img src="https://latex.codecogs.com/gif.latex?\xi_i"/> Schlupfvariablen sind, die Datenpunkten innerhalb des Abstands <img src="https://latex.codecogs.com/gif.latex?a"/> zulassen. <img src="https://latex.codecogs.com/gif.latex?C"/> stellt den korrespondierenden Strafterm dar.
 Dieses Optimierungsproblem kann in einer dualen Form und mit Hilfe von Lagrange-Multiplikatoren formuliert werden:
 
-\begin{equation}
-    \begin{array}{ll}
-        \min& \frac{1}{2} \sum^N_{i=1} \sum^N_{j=1} y_i y_j K(x_i, x_j) \alpha_i \alpha_j -  \sum^N_{i=1} \alpha_i \\
-        \mbox{s.t.} & 0 \leq \alpha_i \leq C \  \ \ \ \ \ \ \ \ \forall i, \\
-        & \sum^N_{i=1} y_i \alpha_i = 0,
-    \end{array}
-\end{equation}
+<img src="https://latex.codecogs.com/gif.latex?\min\frac{1}{2}\sum^N_{i=1}\sum^N_{j=1}y_i{y_j}K(x_i,x_j)\alpha_i\alpha_j-\sum^N_{i=1}\alpha_i"/>
+<img src="https://latex.codecogs.com/gif.latex?\mbox{s.t.}0\leq\alpha_i\leq{C}\forall{i},"/>
+<img src="https://latex.codecogs.com/gif.latex?\sum^N_{i=1}y_i\alpha_i=0,"/>
+
 
 wobei
 - <img src="https://latex.codecogs.com/gif.latex?N"/> die Anzahl der Trainingsdatensätze ist,
@@ -76,7 +73,7 @@ Die korrespondierende Entscheidungsfunktion zu dem oben genannten dualen Problem
 Eine Möglichkeit dieses duale Problem zu lösen stellt die Sequential Minimal Optimization (SMO) dar. Diese Heuristik wurde im Jahr 1988 vom John C. Platt in dem Paper <a href ="https://pdfs.semanticscholar.org/53fc/c056f79e04daf11eb798a7238e93699665aa.pdf?_ga=2.244554757.1233975175.1575631299-132689507.1565621253"> "A Fast Algorithm for Training Support Vector Machines"</a> vorgestellt und geht wie folgt vor:
 
 - Finde einen Lagrange-Multiplikator <img src="https://latex.codecogs.com/gif.latex?\alpha _{1}"/>, der gegen die Karush-Kuhn-Tucker Bedingungen verstößt.
-- Wähle einen zweiten Lagrange-Multiplikator <img src="https://latex.codecogs.com/gif.latex?\alpha_{2}"/> und optimiere für das Multiplikatoren-Paar <img src="https://latex.codecogs.com/gif.latex?(\alpha_{1},\alpha _{2})"/>.
+- Wähle einen zweiten Lagrange-Multiplikator <img src="https://latex.codecogs.com/gif.latex?\alpha_{2}"/> und optimiere für das Multiplikatoren-Paar <img src="https://latex.codecogs.com/gif.latex?(\alpha_{1},\alpha_{2})"/>.
 - Wiederhole die Schritte 1 und 2 bis das Optimierungsproblem konvergiert.
 
 Der SMO Algorithmus ist im Folgenden nach dem Pseudo-Code aus dem Paper von John C. Platt in Python implementiert:
