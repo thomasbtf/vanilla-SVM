@@ -33,15 +33,13 @@ Dazu soll der Abstand <img src="https://latex.codecogs.com/gif.latex?a"/> der Hy
 formuliert werden. Die Maximierung dieses Abstands kann durch das folgende Optimierungsproblem erfolgen:
 
 <img src="https://latex.codecogs.com/gif.latex?\min\frac{1}{2}||w||^2"/>
-<img src="https://latex.codecogs.com/gif.latex?{s.t.}y_i({w}\cdot{x_i}-b)\geq{1}\forall{i},"/>
+<img src="https://latex.codecogs.com/gif.latex?\mbox{s.t.}y_i({w}\cdot{x_i}-b)\geq{1}\forall{i},"/>
 
 wobei <img src="https://latex.codecogs.com/gif.latex?x_i"/> den <img src="https://latex.codecogs.com/gif.latex?i"/>-ten Trainingsdatensatz und <img src="https://latex.codecogs.com/gif.latex?y_i"> das Label des <img src="https://latex.codecogs.com/gif.latex?i"/>-ten Trainingsdatensatzes darstellt.
 Da die Daten häufig nicht linear trennbar sind, wurden von Cortes & Vapnik 1995 Regularisierungsparameter sowie ein Strafterm eingeführt:
 
-
 <img src="https://latex.codecogs.com/gif.latex?\min\frac{1}{2}||w||^2+C\sum^N_{i=1}\xi_i"/>
 <img src="https://latex.codecogs.com/gif.latex?\mbox{s.t.}y_i(w\cdot{x_i}-b)\geq{1}-\xi_i\forall{i},"/>
-
 
 wobei <img src="https://latex.codecogs.com/gif.latex?\xi_i"/> Schlupfvariablen sind, die Datenpunkten innerhalb des Abstands <img src="https://latex.codecogs.com/gif.latex?a"/> zulassen. <img src="https://latex.codecogs.com/gif.latex?C"/> stellt den korrespondierenden Strafterm dar.
 Dieses Optimierungsproblem kann in einer dualen Form und mit Hilfe von Lagrange-Multiplikatoren formuliert werden:
@@ -62,13 +60,11 @@ wobei
 Mit Hilfe der Lagrange-Multiplikatoren ist das Auffinden der lokalen Maxima und Minima einer Funktion (welche Nebenbedingungen unterliegt) möglich.
 Des Weiteren unterliegt das Optimierungsproblem den folgenden Karush-Kuhn-Tucker Bedingungen:
 
-\begin{equation}
-    \begin{array}{lcl}
-        \alpha_i = 0 & \Leftrightarrow & y_i u_i \geq 1, \\
-        0 < \alpha_i < C & \Leftrightarrow & y_i u_i = 1, \\
-        \alpha_i = C & \Leftrightarrow & y_i u_i \leq 1.
-    \end{array}
-\end{equation}
+
+<img src="https://latex.codecogs.com/gif.latex?\alpha_i=0\Leftrightarrow{y_i}u_i\geq{1},"/>
+<img src="https://latex.codecogs.com/gif.latex?0<\alpha_i<C\Leftrightarrow{y_i}u_i=1,"/>
+<img src="https://latex.codecogs.com/gif.latex?\alpha_i=C\Leftrightarrow{y_i}u_i\leq1.">
+
 
 Karush-Kuhn-Tucker Bedingungen stellen die notwendigen Voraussetzungen dafür dar, dass eine Lösung in der nicht linearen Programmierung optimal sein kann.
 Die korrespondierende Entscheidungsfunktion zu dem oben genannten dualen Problem wird folgendermaßen definiert:
