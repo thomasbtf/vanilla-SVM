@@ -33,17 +33,15 @@ Dazu soll der Abstand <img src="https://latex.codecogs.com/gif.latex?a"/> der Hy
 formuliert werden. Die Maximierung dieses Abstands kann durch das folgende Optimierungsproblem erfolgen:
 
 <img src="https://latex.codecogs.com/gif.latex?\min\frac{1}{2}||w||^2"/>
-<img src="https://latex.codecogs.com/gif.latex?{s.t.}y_i({w}\cdot{x_i}-b)\geq{1}&\forall{i}"/>
+<img src="https://latex.codecogs.com/gif.latex?{s.t.}y_i({w}\cdot{x_i}-b)\geq{1}\forall{i},"/>
 
 wobei <img src="https://latex.codecogs.com/gif.latex?x_i"/> den <img src="https://latex.codecogs.com/gif.latex?i"/>-ten Trainingsdatensatz und <img src="https://latex.codecogs.com/gif.latex?y_i"> das Label des <img src="https://latex.codecogs.com/gif.latex?i"/>-ten Trainingsdatensatzes darstellt.
 Da die Daten häufig nicht linear trennbar sind, wurden von Cortes & Vapnik 1995 Regularisierungsparameter sowie ein Strafterm eingeführt:
 
-\begin{equation}
-    \begin{array}{lll}
-        \min &\frac{1}{2} ||w||^2 + C \sum^N_{i=1} \xi_i &\\
-        \mbox{s.t.} & y_i(w \cdot x_i - b) \geq 1 - \xi_i &\forall i, \\
-    \end{array}
-\end{equation}
+
+<img src="https://latex.codecogs.com/gif.latex?\min\frac{1}{2}||w||^2+C\sum^N_{i=1}\xi_i"/>
+<img src="https://latex.codecogs.com/gif.latex?\mbox{s.t.}&y_i(w\cdot{x_i}-b)\geq{1}-\xi_i\forall{i},"/>
+
 
 wobei <img src="https://latex.codecogs.com/gif.latex?\xi_i"/> Schlupfvariablen sind, die Datenpunkten innerhalb des Abstands <img src="https://latex.codecogs.com/gif.latex?a"/> zulassen. <img src="https://latex.codecogs.com/gif.latex?C"/> stellt den korrespondierenden Strafterm dar.
 Dieses Optimierungsproblem kann in einer dualen Form und mit Hilfe von Lagrange-Multiplikatoren formuliert werden:
