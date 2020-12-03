@@ -327,10 +327,10 @@ Da diese Funktion konvex ist und keine Nebenbedingungen gelten, kann ein Gradien
 Da die Hinge Verlustfunktion keine differenzierbare Funktion ist, werden Sub-Gradienten eingesetzt:
 
 <img src="https://latex.codecogs.com/gif.latex?\nabla{J}="/>
-<img src="https://latex.codecogs.com/gif.latex?\begin{cases}\begin{array}{ll}w\mbox{wenn}\max(0,y_iw^Tx_i)=0,//w-C{y_i}x_i\mbox{ansonsten}.\end{array}\end{cases}"/>
+<img src="https://latex.codecogs.com/gif.latex?w\mbox{wenn}\max(0,y_iw^Tx_i)=0,"/>
+<img src="https://latex.codecogs.com/gif.latex?w-C{y_i}x_i\mbox{ansonsten}."/>
 
 Es ist klar, dass <img src="https://latex.codecogs.com/gif.latex?w"/> sowohl stark von der gewählten Anzahl der Epochen als auch von der Learning Rate abhängt. Im Folgendem ist ein solch eher rudimentärer SGD in Anlehnung an <a href = https://svivek.com/teaching/machine-learning/lectures/slides/svm/svm-sgd.pdf>Vivek Srikumar</a>  in Python implementiert:
-
 
 ```python
 class SVMwithSGD:
