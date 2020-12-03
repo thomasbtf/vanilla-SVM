@@ -18,7 +18,7 @@ Eine Support Vector Machine (SVM) teilt einen n-dimensionalen Raum mit Hilfe ein
 
 $$u= w \cdot x - b,$$
 
-wobei\
+wobei
 - <img src="https://latex.codecogs.com/gif.latex?w"/> den Normalenvektor zu der Hyperebene,
 - <img src="https://latex.codecogs.com/gif.latex?x"/> den Eingabevektor und
 - <img src="https://latex.codecogs.com/gif.latex?b"/> einen skalaren Schwellwert darstellt.
@@ -39,7 +39,7 @@ formuliert werden. Die Maximierung dieses Abstands kann durch das folgende Optim
     \end{array}
 \end{equation}
 
-wobei $x_i$ den $i$-ten Trainingsdatensatz und $y_i$ das Label des $i$-ten Trainingsdatensatzes darstellt.
+wobei <img src="https://latex.codecogs.com/gif.latex?x_i"/> den <img src="https://latex.codecogs.com/gif.latex?i"/>-ten Trainingsdatensatz und <img src="https://latex.codecogs.com/gif.latex?y_i"> das Label des <img src="https://latex.codecogs.com/gif.latex?i"/>-ten Trainingsdatensatzes darstellt.
 Da die Daten häufig nicht linear trennbar sind, wurden von Cortes & Vapnik 1995 Regularisierungsparameter sowie ein Strafterm eingeführt:
 
 \begin{equation}
@@ -49,7 +49,7 @@ Da die Daten häufig nicht linear trennbar sind, wurden von Cortes & Vapnik 1995
     \end{array}
 \end{equation}
 
-wobei $\xi_i$ Schlupfvariablen sind, die Datenpunkten innerhalb des Abstands $a$ zulassen. $C$ stellt den korrespondierenden Strafterm dar.
+wobei <img src="https://latex.codecogs.com/gif.latex?\xi_i"/> Schlupfvariablen sind, die Datenpunkten innerhalb des Abstands <img src="https://latex.codecogs.com/gif.latex?a"/> zulassen. <img src="https://latex.codecogs.com/gif.latex?C"/> stellt den korrespondierenden Strafterm dar.
 Dieses Optimierungsproblem kann in einer dualen Form und mit Hilfe von Lagrange-Multiplikatoren formuliert werden:
 
 \begin{equation}
@@ -61,9 +61,9 @@ Dieses Optimierungsproblem kann in einer dualen Form und mit Hilfe von Lagrange-
 \end{equation}
 
 wobei \
-- $N$ die Anzahl der Trainingsdatensätze ist, \
-- $K$ eine Kernelfunktion ist und \
-- $\alpha$ Lagrange-Multiplikatoren darstellen.
+- <img src="https://latex.codecogs.com/gif.latex?N"/> die Anzahl der Trainingsdatensätze ist, \
+- <img src="https://latex.codecogs.com/gif.latex?K"/> eine Kernelfunktion ist und \
+- <img src="https://latex.codecogs.com/gif.latex?\alpha"/> Lagrange-Multiplikatoren darstellen.
 
 Mit Hilfe der Lagrange-Multiplikatoren ist das Auffinden der lokalen Maxima und Minima einer Funktion (welche Nebenbedingungen unterliegt) möglich.
 Des Weiteren unterliegt das Optimierungsproblem den folgenden Karush-Kuhn-Tucker Bedingungen:
@@ -76,7 +76,7 @@ Des Weiteren unterliegt das Optimierungsproblem den folgenden Karush-Kuhn-Tucker
     \end{array}
 \end{equation}
 
-Karush-Kuhn-Tucker Bedingungen stellen die notwendigen Voraussetzungen dafür dar, dass eine Lösung in der nicht linearen Programmierung optimal sein kann. 
+Karush-Kuhn-Tucker Bedingungen stellen die notwendigen Voraussetzungen dafür dar, dass eine Lösung in der nicht linearen Programmierung optimal sein kann.
 Die korrespondierende Entscheidungsfunktion zu dem oben genannten dualen Problem wird folgendermaßen definiert:
 
 $$u = \sum^N_{j=1}y_j \alpha_j K(x_j,x)-b.$$
@@ -85,8 +85,8 @@ $$u = \sum^N_{j=1}y_j \alpha_j K(x_j,x)-b.$$
 
 Eine Möglichkeit dieses duale Problem zu lösen stellt die Sequential Minimal Optimization (SMO) dar. Diese Heuristik wurde im Jahr 1988 vom John C. Platt in dem Paper <a href ="https://pdfs.semanticscholar.org/53fc/c056f79e04daf11eb798a7238e93699665aa.pdf?_ga=2.244554757.1233975175.1575631299-132689507.1565621253"> "A Fast Algorithm for Training Support Vector Machines"</a> vorgestellt und geht wie folgt vor:
 
-- Finde einen Lagrange-Multiplikator $\alpha _{1}$, der gegen die Karush-Kuhn-Tucker Bedingungen verstößt. \
-- Wähle einen zweiten Lagrange-Multiplikator $\alpha_{2}$ und optimiere für das Multiplikatoren-Paar $(\alpha_{1},\alpha _{2})$. \
+- Finde einen Lagrange-Multiplikator <img src="https://latex.codecogs.com/gif.latex?\alpha _{1}"/>, der gegen die Karush-Kuhn-Tucker Bedingungen verstößt.
+- Wähle einen zweiten Lagrange-Multiplikator <img src="https://latex.codecogs.com/gif.latex?\alpha_{2}"/> und optimiere für das Multiplikatoren-Paar <img src="https://latex.codecogs.com/gif.latex?(\alpha_{1},\alpha _{2})"/>.
 - Wiederhole die Schritte 1 und 2 bis das Optimierungsproblem konvergiert.
 
 Der SMO Algorithmus ist im Folgenden nach dem Pseudo-Code aus dem Paper von John C. Platt in Python implementiert:
