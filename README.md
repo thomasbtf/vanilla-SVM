@@ -350,7 +350,7 @@ $$\nabla J =
 \begin{cases}
 \begin{array}{ll}
         w & \mbox{wenn} \max (0, y_i w^T x_i) = 0, \\
-        w - C y_i x_i & \mbox{ansonsten}. 
+        w - C y_i x_i & \mbox{ansonsten}.
     \end{array}
 \end{cases}
 $$
