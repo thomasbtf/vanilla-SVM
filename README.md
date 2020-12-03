@@ -48,7 +48,6 @@ Dieses Optimierungsproblem kann in einer dualen Form und mit Hilfe von Lagrange-
 <img src="https://latex.codecogs.com/gif.latex?\mbox{s.t.}0\leq\alpha_i\leq{C}\forall{i},"/>
 <img src="https://latex.codecogs.com/gif.latex?\sum^N_{i=1}y_i\alpha_i=0,"/>
 
-
 wobei
 - <img src="https://latex.codecogs.com/gif.latex?N"/> die Anzahl der Trainingsdatensätze ist,
 - <img src="https://latex.codecogs.com/gif.latex?K"/> eine Kernelfunktion ist und
@@ -57,11 +56,9 @@ wobei
 Mit Hilfe der Lagrange-Multiplikatoren ist das Auffinden der lokalen Maxima und Minima einer Funktion (welche Nebenbedingungen unterliegt) möglich.
 Des Weiteren unterliegt das Optimierungsproblem den folgenden Karush-Kuhn-Tucker Bedingungen:
 
-
 <img src="https://latex.codecogs.com/gif.latex?\alpha_i=0\Leftrightarrow{y_i}u_i\geq{1},"/>
 <img src="https://latex.codecogs.com/gif.latex?0<\alpha_i<C\Leftrightarrow{y_i}u_i=1,"/>
 <img src="https://latex.codecogs.com/gif.latex?\alpha_i=C\Leftrightarrow{y_i}u_i\leq1.">
-
 
 Karush-Kuhn-Tucker Bedingungen stellen die notwendigen Voraussetzungen dafür dar, dass eine Lösung in der nicht linearen Programmierung optimal sein kann.
 Die korrespondierende Entscheidungsfunktion zu dem oben genannten dualen Problem wird folgendermaßen definiert:
@@ -316,11 +313,7 @@ Quelle: <a href = https://svivek.com/teaching/machine-learning/lectures/slides/s
 
 Als Alternativ zur SMO kann das primale Problem mit Hilfe von Stochastic Gradient Descent (SGD) bearbeitet werden. Dabei werden die Schlupfvariablen <img src="https://latex.codecogs.com/gif.latex?\xi_i"/> der Zielfunktion durch eine Verlustfunktion ersetzt, beispielsweise der Hinge-Funktion:
 
-\begin{equation}
-    \begin{array}{lll}
-        \min &J = \frac{1}{2} ||w||^2 + C \sum_{i=1}^N \max (0, y_i w^Tx_i). &\\
-    \end{array}
-\end{equation}
+<img src="https://latex.codecogs.com/gif.latex?\min{J}=\frac{1}{2}||w||^2+C\sum_{i=1}^N\max(0,{y_i}w^Tx_i)."/>
 
 Da diese Funktion konvex ist und keine Nebenbedingungen gelten, kann ein Gradientenverfahren angewandt werden. Der  stochastische Ansatz des SGD geht wie folgt vor:
 
@@ -328,19 +321,13 @@ Da diese Funktion konvex ist und keine Nebenbedingungen gelten, kann ein Gradien
 2. Für die Epoche <img src="https://latex.codecogs.com/gif.latex?e=1...E"/> tue:
     2.1 Wähle einen zufälligen Datensatz <img src="https://latex.codecogs.com/gif.latex?(x, y)"/> aus dem Trainingsset, wobei <img src="https://latex.codecogs.com/gif.latex?x"/> die Eigenschaften darstellt und <img src="https://latex.codecogs.com/gif.latex?y"/> die Zielvariable (bzw. das Label) ist.
     2.2. Berechne den Gradienten der Zielfunktion für diesen Datensatz.
-    2.3. Update von <img src="https://latex.codecogs.com/gif.latex?w"/>: <img src="https://latex.codecogs.com/gif.latex?w^E\leftarrow w^{e-1} - \eta \nabla J(w^{e-1})"/>, wobei die Learning Rate <img src="https://latex.codecogs.com/gif.latex?\eta"/> die Größe des Updates bestimmt.
+    2.3. Update von <img src="https://latex.codecogs.com/gif.latex?w"/>: <img src="https://latex.codecogs.com/gif.latex?w^E\leftarrow w^{e-1}-\eta\nabla{J}(w^{e-1})"/>, wobei die Learning Rate <img src="https://latex.codecogs.com/gif.latex?\eta"/> die Größe des Updates bestimmt.
 3. Gib das finale <img src="https://latex.codecogs.com/gif.latex?w"/> zurück.
 
 Da die Hinge Verlustfunktion keine differenzierbare Funktion ist, werden Sub-Gradienten eingesetzt:
 
-$$\nabla J =
-\begin{cases}
-\begin{array}{ll}
-        w & \mbox{wenn} \max (0, y_i w^T x_i) = 0, \\
-        w - C y_i x_i & \mbox{ansonsten}.
-    \end{array}
-\end{cases}
-$$
+<img src="https://latex.codecogs.com/gif.latex?\nabla{J}="/>
+<img src="https://latex.codecogs.com/gif.latex?\begin{cases}\begin{array}{ll}w\mbox{wenn}\max(0,y_iw^Tx_i)=0,//w-C{y_i}x_i\mbox{ansonsten}.\end{array}\end{cases}"/>
 
 Es ist klar, dass <img src="https://latex.codecogs.com/gif.latex?w"/> sowohl stark von der gewählten Anzahl der Epochen als auch von der Learning Rate abhängt. Im Folgendem ist ein solch eher rudimentärer SGD in Anlehnung an <a href = https://svivek.com/teaching/machine-learning/lectures/slides/svm/svm-sgd.pdf>Vivek Srikumar</a>  in Python implementiert:
 
