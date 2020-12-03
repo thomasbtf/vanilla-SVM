@@ -16,7 +16,7 @@ Quelle: <a href ="https://pdfs.semanticscholar.org/53fc/c056f79e04daf11eb798a723
 
 Eine Support Vector Machine (SVM) teilt einen n-dimensionalen Raum mit Hilfe einer n-1-dimensionalen Hyperebene. Diese Entscheidungsfunktion kann folgendermaßen beschrieben werden:
 
-$$u= w \cdot x - b,$$
+<img src="https://latex.codecogs.com/gif.latex?u=w\cdot x-b,"/>
 
 wobei
 - <img src="https://latex.codecogs.com/gif.latex?w"/> den Normalenvektor zu der Hyperebene,
@@ -25,10 +25,10 @@ wobei
 
 Eine SVM soll eine Hyperebene finden, die zwei Klassen trennt, d.h. <img src="https://latex.codecogs.com/gif.latex?{w}\cdot{x}-b=0"/>.
 
-Für Instanzen der Klasse ''$-1$'' soll $w \cdot x - b \leq -1$ gelten, während für Instanzen der Klasse ''$1$'' $w \cdot x - b \geq 1$ gelten soll.
-Dazu soll der Abstand $a$ der Hyperebene zu den beiden Klassen möglichst groß sein. Dieser Abstand kann als
+Für Instanzen der Klasse ''<img src="https://latex.codecogs.com/gif.latex?-1$"/>'' soll <img src="https://latex.codecogs.com/gif.latex?w \cdot x - b \leq -1"/> gelten, während für Instanzen der Klasse ''<img src="https://latex.codecogs.com/gif.latex?1"/>'' <img src="https://latex.codecogs.com/gif.latex?w \cdot x - b \geq 1"/> gelten soll.
+Dazu soll der Abstand <img src="https://latex.codecogs.com/gif.latex?a"/> der Hyperebene zu den beiden Klassen möglichst groß sein. Dieser Abstand kann als
 
-$$a = \frac{1}{||{w}||_2}$$
+<img src="https://latex.codecogs.com/gif.latex?a = \frac{1}{||{w}||_2}"/>
 
 formuliert werden. Die Maximierung dieses Abstands kann durch das folgende Optimierungsproblem erfolgen:
 
@@ -79,7 +79,7 @@ Des Weiteren unterliegt das Optimierungsproblem den folgenden Karush-Kuhn-Tucker
 Karush-Kuhn-Tucker Bedingungen stellen die notwendigen Voraussetzungen dafür dar, dass eine Lösung in der nicht linearen Programmierung optimal sein kann.
 Die korrespondierende Entscheidungsfunktion zu dem oben genannten dualen Problem wird folgendermaßen definiert:
 
-$$u = \sum^N_{j=1}y_j \alpha_j K(x_j,x)-b.$$
+<img src="https://latex.codecogs.com/gif.latex?u = \sum^N_{j=1}y_j \alpha_j K(x_j,x)-b."/>
 
 # Support Vector Machines mit Sequential Minimal Optimization nach John C. Platt "A Fast Algorithm for Training Support Vector Machines" (1998)
 
