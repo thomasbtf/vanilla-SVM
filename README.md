@@ -23,7 +23,7 @@ wobei
 - <img src="https://latex.codecogs.com/gif.latex?x"/> den Eingabevektor und
 - <img src="https://latex.codecogs.com/gif.latex?b"/> einen skalaren Schwellwert darstellt.
 
-Eine SVM soll eine Hyperebene finden, die zwei Klassen trennt, d.h. ${w} \cdot {x} - b = 0$.
+Eine SVM soll eine Hyperebene finden, die zwei Klassen trennt, d.h. <img src="https://latex.codecogs.com/gif.latex?{w}\cdot{x}-b=0"/>.
 
 Für Instanzen der Klasse ''$-1$'' soll $w \cdot x - b \leq -1$ gelten, während für Instanzen der Klasse ''$1$'' $w \cdot x - b \geq 1$ gelten soll.
 Dazu soll der Abstand $a$ der Hyperebene zu den beiden Klassen möglichst groß sein. Dieser Abstand kann als
@@ -86,7 +86,7 @@ $$u = \sum^N_{j=1}y_j \alpha_j K(x_j,x)-b.$$
 Eine Möglichkeit dieses duale Problem zu lösen stellt die Sequential Minimal Optimization (SMO) dar. Diese Heuristik wurde im Jahr 1988 vom John C. Platt in dem Paper <a href ="https://pdfs.semanticscholar.org/53fc/c056f79e04daf11eb798a7238e93699665aa.pdf?_ga=2.244554757.1233975175.1575631299-132689507.1565621253"> "A Fast Algorithm for Training Support Vector Machines"</a> vorgestellt und geht wie folgt vor:
 
 - Finde einen Lagrange-Multiplikator <img src="https://latex.codecogs.com/gif.latex?\alpha _{1}"/>, der gegen die Karush-Kuhn-Tucker Bedingungen verstößt.
-- Wähle einen zweiten Lagrange-Multiplikator <img src="https://latex.codecogs.com/gif.latex?\alpha_{2}"/> und optimiere für das Multiplikatoren-Paar <img src="https://latex.codecogs.com/gif.latex?(\alpha_{1},\alpha _{2})"/>.
+- Wähle einen zweiten Lagrange-Multiplikator <img src="https://latex.codecogs.com/gif.latex?\alpha_{2}"/> und optimiere für das Multiplikatoren-Paar <img src="https://latex.codecogs.com/gif.latex?(\alpha_{1},\alpha _{2}) "/>.
 - Wiederhole die Schritte 1 und 2 bis das Optimierungsproblem konvergiert.
 
 Der SMO Algorithmus ist im Folgenden nach dem Pseudo-Code aus dem Paper von John C. Platt in Python implementiert:
